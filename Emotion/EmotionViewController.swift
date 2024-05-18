@@ -3,7 +3,7 @@
 //  Emotion
 //
 //  Created by 홍정민 on 5/17/24.
-//
+//  1. Array로 구현
 
 import UIKit
 
@@ -17,7 +17,7 @@ class EmotionViewController: UIViewController {
     @IBOutlet var slimeButton7: UIButton!
     @IBOutlet var slimeButton8: UIButton!
     @IBOutlet var slimeButton9: UIButton!
-
+    
     @IBOutlet var countLabel1: UILabel!
     @IBOutlet var countLabel2: UILabel!
     @IBOutlet var countLabel3: UILabel!
@@ -28,74 +28,54 @@ class EmotionViewController: UIViewController {
     @IBOutlet var countLabel8: UILabel!
     @IBOutlet var countLabel9: UILabel!
     
-    private var emotionLabel: [UILabel] = []
-    private var emotionCount = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    private var emotionTitle = ["행복해","사랑해", "좋아해","당황해", "속상해", "우울해", "심심해", "짜증나", "눈물나"]
-
+    private var emotionLabels: [UILabel] = []
+    private var emotionButtons: [UIButton] = []
+    private var emotionImages: [UIImage] = []
+    
+    private var emotionCounts = Array(repeating: 0, count: 9)
+    private var emotionTitles = ["행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "짜증나", "눈물나"]
+    
     @IBAction func emotionButtonClicked(_ sender: UIButton) {
-        let index = sender.tag
-        emotionCount[index] += 1
-        emotionLabel[index].text = emotionTitle[index] + " \(emotionCount[index])"
+        guard let index = emotionButtons.firstIndex(of: sender) else { return  }
+        emotionCounts[index] += 1
+        emotionLabels[index].text = emotionTitles[index] + " \(emotionCounts[index])"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //네비게이션 타이틀 설정
         navigationItem.title = "감정 다이어리"
         
-        //Label을 꼭 배열에 담아야 하나?
-        emotionLabel = [countLabel1, countLabel2, countLabel3, countLabel4, countLabel5, countLabel6, countLabel7, countLabel8, countLabel9]
+        //emotionLabel 배열 초기화
+        emotionLabels = [countLabel1, countLabel2, countLabel3, countLabel4, countLabel5, countLabel6, countLabel7, countLabel8, countLabel9]
         
-        //태그를 사용하지 않고 할 수 있는 방법?
-        slimeButton1.tag = 0
-        slimeButton2.tag = 1
-        slimeButton3.tag = 2
-        slimeButton4.tag = 3
-        slimeButton5.tag = 4
-        slimeButton6.tag = 5
-        slimeButton7.tag = 6
-        slimeButton8.tag = 7
-        slimeButton9.tag = 8
+        //emotionButtons 배열 초기화
+        emotionButtons = [slimeButton1, slimeButton2, slimeButton3, slimeButton4, slimeButton5, slimeButton6, slimeButton7, slimeButton8, slimeButton9]
         
-        slimeButton1.setImage(UIImage(named:"slime1" ), for: .normal)
-        slimeButton2.setImage(UIImage(named:"slime2" ), for: .normal)
-        slimeButton3.setImage(UIImage(named:"slime3" ), for: .normal)
-        slimeButton4.setImage(UIImage(named:"slime4" ), for: .normal)
-        slimeButton5.setImage(UIImage(named:"slime5" ), for: .normal)
-        slimeButton6.setImage(UIImage(named:"slime6" ), for: .normal)
-        slimeButton7.setImage(UIImage(named:"slime7" ), for: .normal)
-        slimeButton8.setImage(UIImage(named:"slime8" ), for: .normal)
-        slimeButton9.setImage(UIImage(named:"slime9" ), for: .normal)
+        //emotionImages 배열 초기화
+        emotionImages = [UIImage(named:"slime1")!, UIImage(named:"slime2")!, UIImage(named:"slime3")!, UIImage(named:"slime4")!, UIImage(named:"slime5")!, UIImage(named:"slime6")!, UIImage(named:"slime7")!, UIImage(named:"slime8")!, UIImage(named:"slime9")!]
         
-        countLabel1.textAlignment = .center
-        countLabel1.text = emotionTitle[0]
+        //버튼 디자인 적용 및 레이블 디자인 적용
+        for i in 0..<9 {
+            designButton(emotionButtons[i], emotionImages[i])
+            designLabel(emotionLabels[i], emotionTitles[i])
+        }
         
-        countLabel2.textAlignment = .center
-        countLabel2.text = emotionTitle[1]
-        
-        countLabel3.textAlignment = .center
-        countLabel3.text = emotionTitle[2]
-
-        countLabel4.textAlignment = .center
-        countLabel4.text = emotionTitle[3]
-
-        countLabel5.textAlignment = .center
-        countLabel5.text = emotionTitle[4]
-
-        countLabel6.textAlignment = .center
-        countLabel6.text = emotionTitle[5]
-
-        countLabel7.textAlignment = .center
-        countLabel7.text = emotionTitle[6]
-
-        countLabel8.textAlignment = .center
-        countLabel8.text = emotionTitle[7]
-
-        countLabel9.textAlignment = .center
-        countLabel9.text = emotionTitle[8]
-
-
     }
-
-
+    
+    //버튼 디자인 적용
+    private func designButton(_ sender: UIButton, _ img: UIImage){
+        sender.setImage(img, for: .normal)
+    }
+    
+    //레이블 디자인 적용
+    private func designLabel(_ sender: UILabel, _ emotionTitle: String){
+        sender.textAlignment = .center
+        sender.text = emotionTitle
+        
+    }
+    
+    
 }
 
