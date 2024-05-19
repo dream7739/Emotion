@@ -33,7 +33,7 @@ class EmotionViewController: UIViewController {
     private var emotionImages: [UIImage] = []
     
     private var emotionCounts = Array(repeating: 0, count: 9)
-    private var emotionTitles = ["행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "짜증나", "눈물나"]
+    private let emotionTitles = ["행복해", "사랑해", "좋아해", "당황해", "속상해", "우울해", "심심해", "짜증나", "눈물나"]
     
     @IBAction func emotionButtonClicked(_ sender: UIButton) {
         guard let index = emotionButtons.firstIndex(of: sender) else { return  }
@@ -65,12 +65,12 @@ class EmotionViewController: UIViewController {
     }
     
     //버튼 디자인 적용
-    private func designButton(_ sender: UIButton, _ img: UIImage){
+    fileprivate func designButton(_ sender: UIButton, _ img: UIImage){
         sender.setImage(img, for: .normal)
     }
     
     //레이블 디자인 적용
-    private func designLabel(_ sender: UILabel, _ emotionTitle: String){
+    fileprivate func designLabel(_ sender: UILabel, _ emotionTitle: String){
         sender.textAlignment = .center
         sender.text = emotionTitle
         
