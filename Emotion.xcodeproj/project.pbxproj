@@ -14,6 +14,8 @@
 		88612D7F2BF74170002FD9D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88612D7E2BF74170002FD9D3 /* Assets.xcassets */; };
 		88612D822BF74170002FD9D3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 88612D812BF74170002FD9D3 /* Base */; };
 		88612D8A2BF7429A002FD9D3 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88612D892BF7429A002FD9D3 /* WordViewController.swift */; };
+		887B12AF2BF9C6010044E547 /* EmotionViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887B12AE2BF9C6010044E547 /* EmotionViewController3.swift */; };
+		88C4A41D2BF89C0600284B34 /* EmotionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4A41C2BF89C0600284B34 /* EmotionViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		88612D812BF74170002FD9D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88612D832BF74170002FD9D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88612D892BF7429A002FD9D3 /* WordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
+		887B12AE2BF9C6010044E547 /* EmotionViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController3.swift; sourceTree = "<group>"; };
+		88C4A41C2BF89C0600284B34 /* EmotionViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				88612D802BF74170002FD9D3 /* LaunchScreen.storyboard */,
 				88612D832BF74170002FD9D3 /* Info.plist */,
 				88612D892BF7429A002FD9D3 /* WordViewController.swift */,
+				88C4A41C2BF89C0600284B34 /* EmotionViewController2.swift */,
+				887B12AE2BF9C6010044E547 /* EmotionViewController3.swift */,
 			);
 			path = Emotion;
 			sourceTree = "<group>";
@@ -141,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C4A41D2BF89C0600284B34 /* EmotionViewController2.swift in Sources */,
 				88612D7A2BF74170002FD9D3 /* EmotionViewController.swift in Sources */,
 				88612D762BF74170002FD9D3 /* AppDelegate.swift in Sources */,
 				88612D8A2BF7429A002FD9D3 /* WordViewController.swift in Sources */,
+				887B12AF2BF9C6010044E547 /* EmotionViewController3.swift in Sources */,
 				88612D782BF74170002FD9D3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
