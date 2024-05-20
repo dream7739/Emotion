@@ -287,12 +287,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
+                                    <action selector="keyboardDismiss:" destination="8rM-ow-Wmg" eventType="touchUpInside" id="uVF-LD-NZZ"/>
                                     <action selector="searchButtonClicked:" destination="8rM-ow-Wmg" eventType="touchUpInside" id="UTt-2v-5rw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xbq-u8-39d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="amS-hd-Mqy" appends="YES" id="5Gd-w6-M3h"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="uG0-65-oqN"/>
                     <connections>
@@ -308,6 +313,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptg-v7-E0H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="amS-hd-Mqy">
+                    <connections>
+                        <action selector="keyboardDismiss:" destination="8rM-ow-Wmg" id="DTC-ix-K1k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1028" y="996"/>
         </scene>
@@ -322,8 +332,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="8mv-dP-KRc" kind="relationship" relationship="viewControllers" id="MAu-5c-l22"/>
-                        <segue destination="PmC-ov-ApB" kind="relationship" relationship="viewControllers" id="Gnj-bQ-PsJ"/>
-                        <segue destination="cNJ-ng-8j2" kind="relationship" relationship="viewControllers" id="s6S-6Q-FYx"/>
                         <segue destination="Yn8-99-78T" kind="relationship" relationship="viewControllers" id="PE5-HZ-FEo"/>
                     </connections>
                 </tabBarController>

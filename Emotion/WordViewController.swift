@@ -51,7 +51,9 @@ class WordViewController: UIViewController {
                                                     "아만추": "아무나 만남 추구",
                                                     "꾸안꾸": "꾸민 듯 안꾸민듯",
                                                     "삼귀다": "사귀기 전 사이",
-                                                    "혼코노": "혼자 코인노래방 가기"]
+                                                    "혼코노": "혼자 코인노래방 가기",
+                                                    "rizz": "매력·끼를 발산하다",
+                                                    "asap": "가능한 한 빨리"]
     
     private var randomKeyword:[String] = []
     
@@ -93,6 +95,11 @@ class WordViewController: UIViewController {
         
     }
     
+    //키보드 내림 기능 추가
+    @IBAction func keyboardDismiss(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     //해시태그 버튼을 랜덤 키워드로 변경
     private func getRandomKeyword(){
         randomKeyword = []
@@ -112,8 +119,9 @@ class WordViewController: UIViewController {
     
     //키워드 검색 시 결과화면에 표시
     private func searchWord(keyword: String){
-        if wordDictionary[keyword] != nil{
-            mentLabel.text = wordDictionary[keyword]
+        let trimKeyword = keyword.trimmingCharacters(in: .whitespaces).lowercased()
+        if wordDictionary[trimKeyword] != nil{
+            mentLabel.text = wordDictionary[trimKeyword]
         }else{
             mentLabel.text = "검색결과가 없습니다"
         }
@@ -129,10 +137,6 @@ class WordViewController: UIViewController {
     }
     
     
-    //화면 터치 시 키보드를 내림
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
     
     
     
