@@ -186,24 +186,6 @@
                         <outlet property="slimeButton7" destination="rYx-Er-Py6" id="Ylg-vy-xp8"/>
                         <outlet property="slimeButton8" destination="htk-To-Rew" id="s3Q-AQ-Ttd"/>
                         <outlet property="slimeButton9" destination="BPI-iu-mwu" id="XLF-GC-9Wb"/>
-                        <outletCollection property="emotionLabels" destination="0GS-S1-cKw" collectionClass="NSMutableArray" id="iOf-VY-p8Q"/>
-                        <outletCollection property="emotionLabels" destination="Uad-h8-bjt" collectionClass="NSMutableArray" id="jef-1B-MmP"/>
-                        <outletCollection property="emotionLabels" destination="UbO-Xr-hId" collectionClass="NSMutableArray" id="Zof-NN-57k"/>
-                        <outletCollection property="emotionLabels" destination="HKX-D2-16N" collectionClass="NSMutableArray" id="OE5-Y7-ob2"/>
-                        <outletCollection property="emotionLabels" destination="Zic-Dm-sq7" collectionClass="NSMutableArray" id="tP9-Sy-yPK"/>
-                        <outletCollection property="emotionLabels" destination="u7D-QW-XiS" collectionClass="NSMutableArray" id="sqr-iV-MhK"/>
-                        <outletCollection property="emotionLabels" destination="rCj-TO-5RF" collectionClass="NSMutableArray" id="gLk-zF-mKn"/>
-                        <outletCollection property="emotionLabels" destination="i6Z-mg-zP3" collectionClass="NSMutableArray" id="JfW-LJ-7G6"/>
-                        <outletCollection property="emotionLabels" destination="dOv-lq-1hC" collectionClass="NSMutableArray" id="lmn-wE-juZ"/>
-                        <outletCollection property="emotionButtons" destination="EZQ-xC-47m" collectionClass="NSMutableArray" id="07Y-Wi-ekF"/>
-                        <outletCollection property="emotionButtons" destination="onG-lG-PPh" collectionClass="NSMutableArray" id="k7a-Oo-iR4"/>
-                        <outletCollection property="emotionButtons" destination="RoY-mn-yfh" collectionClass="NSMutableArray" id="wqP-Kx-kKo"/>
-                        <outletCollection property="emotionButtons" destination="SfY-lc-g4K" collectionClass="NSMutableArray" id="5qe-Ob-oxc"/>
-                        <outletCollection property="emotionButtons" destination="Pfu-ij-QuY" collectionClass="NSMutableArray" id="Ff1-Kx-kkB"/>
-                        <outletCollection property="emotionButtons" destination="O5E-jB-5G6" collectionClass="NSMutableArray" id="Bgc-dN-mFM"/>
-                        <outletCollection property="emotionButtons" destination="rYx-Er-Py6" collectionClass="NSMutableArray" id="seL-PE-4jx"/>
-                        <outletCollection property="emotionButtons" destination="htk-To-Rew" collectionClass="NSMutableArray" id="zpM-vi-AVw"/>
-                        <outletCollection property="emotionButtons" destination="BPI-iu-mwu" collectionClass="NSMutableArray" id="WXh-02-90D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
