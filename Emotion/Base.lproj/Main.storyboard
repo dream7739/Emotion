@@ -310,6 +310,10 @@
                         <outlet property="searchButton" destination="Dyd-Z8-4sO" id="38y-ha-Yrt"/>
                         <outlet property="searchTextField" destination="JsT-wN-ea5" id="8bp-Vt-EhM"/>
                         <outlet property="textBackgroundView" destination="iyL-9M-yzE" id="HdZ-BH-e7g"/>
+                        <outletCollection property="hashTagButtonList" destination="63V-qL-Oix" collectionClass="NSMutableArray" id="ntq-AG-XeK"/>
+                        <outletCollection property="hashTagButtonList" destination="g9l-wn-I4J" collectionClass="NSMutableArray" id="FrW-kP-ZyC"/>
+                        <outletCollection property="hashTagButtonList" destination="7hZ-wB-f1Y" collectionClass="NSMutableArray" id="G7y-G1-Wqr"/>
+                        <outletCollection property="hashTagButtonList" destination="FiR-Eg-FFD" collectionClass="NSMutableArray" id="y65-uL-9E4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptg-v7-E0H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -18,28 +18,7 @@ class WordViewController: UIViewController {
     @IBOutlet var hashTagButton4: UIButton!
     @IBOutlet var mentboxImageView: UIImageView!
     @IBOutlet var mentLabel: UILabel!
-    
-    //검색결과 입력 후 엔터버튼 클릭 시
-    @IBAction func searchEndClicked(_ sender: UITextField) {
-        let keyword = sender.text!
-        searchWord(keyword: keyword)
-        getRandomKeyword()
-    }
-    
-    //해시태그 클릭 시
-    @IBAction func hashTagButtonClicked(_ sender: UIButton) {
-        let keyword = sender.currentTitle!
-        searchWord(keyword: keyword)
-        searchTextField.text = keyword
-        getRandomKeyword()
-    }
-    
-    //검색 버튼 클릭 시
-    @IBAction func searchButtonClicked(_ sender: UIButton) {
-        let keyword = searchTextField.text!
-        searchWord(keyword: keyword)
-        getRandomKeyword()
-    }
+    @IBOutlet var hashTagButtonList: [UIButton]!
     
     private var wordDictionary: [String: String] = ["다꾸": "다이어리 꾸미기",
                                                     "오하운":"오늘 하루 운동",
@@ -60,64 +39,69 @@ class WordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textBackgroundView.layer.borderColor = UIColor.black.cgColor
-        textBackgroundView.layer.borderWidth = 2.0
+        designBackgorundView(textBackgroundView)
+        designTextField(searchTextField, placeholder: "신조어를 검색하세요")
+        designSearchButton(searchButton, "magnifyingglass")
         
-        searchTextField.borderStyle = .none
-        searchTextField.tintColor = .black
-        searchTextField.placeholder = "신조어를 입력하세요"
+        for hashTagButton in hashTagButtonList {
+            designButton(hashTagButton)
+        }
         
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        searchTextField.leftView = paddingView
-        searchTextField.clearButtonMode = .always
-        searchTextField.leftViewMode = .always
-        
-        searchButton.backgroundColor = .black
-        searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        searchButton.setTitle("", for: .normal)
-        searchButton.tintColor = .white
-        
-        designButton(hashTagButton1)
-        designButton(hashTagButton2)
-        designButton(hashTagButton3)
-        designButton(hashTagButton4)
-        
-        mentboxImageView.contentMode = .scaleAspectFill
-        mentboxImageView.image = UIImage(named: "background")
-        
-        mentLabel.text = "신조어를 검색하세요"
-        mentLabel.textAlignment = .center
-        mentLabel.numberOfLines = 0
-        mentLabel.font = .systemFont(ofSize: 20)
+        designImageView(mentboxImageView, "background")
+        designLabel(mentLabel, resultText: "신조어를 검색하세요")
         
         //랜덤 키워드 설정
         getRandomKeyword()
         
     }
     
-    //키보드 내림 기능 추가
+    //키보드 내림 기능 추가, 버튼 클릭 시 or 화면 터치 시
     @IBAction func keyboardDismiss(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    //검색결과 입력 후 엔터버튼 클릭 시
+    //textField에 입력한 키워드로 검색결과를 표시하고 랜덤 키워드를 변경
+    @IBAction func searchEndClicked(_ sender: UITextField) {
+        let keyword = sender.text!
+        searchWord(keyword: keyword)
+        getRandomKeyword()
+    }
+    
+    //해시태그 클릭 시
+    //해시태그 타이틀에 있는 키워드로 검색결과를 표시하고 랜덤 키워드를 변경
+    @IBAction func hashTagButtonClicked(_ sender: UIButton) {
+        let keyword = sender.currentTitle!
+        searchWord(keyword: keyword)
+        searchTextField.text = keyword
+        getRandomKeyword()
+    }
+    
+    //검색 버튼 클릭 시
+    @IBAction func searchButtonClicked(_ sender: UIButton) {
+        let keyword = searchTextField.text!
+        searchWord(keyword: keyword)
+        getRandomKeyword()
     }
     
     //해시태그 버튼을 랜덤 키워드로 변경
     private func getRandomKeyword(){
         randomKeyword = []
         
-        while randomKeyword.count < 5 {
+        while randomKeyword.count < 4 {
             let keyword = wordDictionary.randomElement()!.key
             if !randomKeyword.contains(keyword) && keyword.count < 4{
+                hashTagButtonList[randomKeyword.count].setTitle(keyword, for: .normal)
                 randomKeyword.append(keyword)
             }
         }
         
-        hashTagButton1.setTitle(randomKeyword[0], for: .normal)
-        hashTagButton2.setTitle(randomKeyword[1], for: .normal)
-        hashTagButton3.setTitle(randomKeyword[2], for: .normal)
-        hashTagButton4.setTitle(randomKeyword[3], for: .normal)
+        // print(randomKeyword)
+        
     }
     
     //키워드 검색 시 결과화면에 표시
+    //공백제거, 소문자로만 검색되도록 변경
     private func searchWord(keyword: String){
         let trimKeyword = keyword.trimmingCharacters(in: .whitespaces).lowercased()
         if wordDictionary[trimKeyword] != nil{
@@ -136,8 +120,42 @@ class WordViewController: UIViewController {
         sender.tintColor = .black
     }
     
+    //텍스트필드 스타일 적용
+    fileprivate func designTextField(_ sender: UITextField, placeholder: String){
+        sender.borderStyle = .none
+        sender.tintColor = .black
+        sender.placeholder = placeholder
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        sender.leftView = paddingView
+        sender.clearButtonMode = .always
+        sender.leftViewMode = .always
+    }
     
+    // 텍스트필드 배경 테두리 스타일 적용
+    fileprivate func designBackgorundView(_ sender: UIView){
+        sender.layer.borderColor = UIColor.black.cgColor
+        sender.layer.borderWidth = 2.0
+    }
     
+    // 검색버튼 스타일 적용
+    fileprivate func designSearchButton(_ sender : UIButton, _ image: String){
+        sender.backgroundColor = .black
+        sender.setImage(UIImage(systemName: image), for: .normal)
+        sender.setTitle("", for: .normal)
+        sender.tintColor = .white
+    }
     
+    // 신조어 검색결과 이미지뷰 스타일 적용
+    fileprivate func designImageView(_ sender : UIImageView, _ image: String){
+        sender.contentMode = .scaleAspectFill
+        sender.image = UIImage(named: image)
+    }
     
+    fileprivate func designLabel(_ sender : UILabel, resultText: String){
+        sender.text = resultText
+        sender.textAlignment = .center
+        sender.numberOfLines = 0
+        sender.font = .systemFont(ofSize: 20)
+    }
 }
