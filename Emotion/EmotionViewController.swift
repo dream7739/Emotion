@@ -70,7 +70,6 @@ class EmotionViewController: UIViewController {
         
         if let savedEmotionCounts = UserDefaults.standard.array(forKey: "emotionCounts") as? [Int] {
             emotionCounts = savedEmotionCounts
-            print(savedEmotionCounts)
         }
         
         //네비게이션 타이틀 설정

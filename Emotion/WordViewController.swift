@@ -19,6 +19,7 @@ class WordViewController: UIViewController {
     @IBOutlet var mentboxImageView: UIImageView!
     @IBOutlet var mentLabel: UILabel!
     @IBOutlet var hashTagButtonList: [UIButton]!
+    @IBOutlet var recentSearchLabel: UILabel!
     
     private var wordDictionary: [String: String] = ["다꾸": "다이어리 꾸미기",
                                                     "오하운":"오늘 하루 운동",
@@ -38,6 +39,13 @@ class WordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let savedKeyword = UserDefaults.standard.string(forKey: "recentKeyword"){
+            recentSearchLabel.text = "가장 최신 검색 단어: \(savedKeyword)"
+        }else{
+            recentSearchLabel.isHidden = true
+        }
+        
         
         designBackgorundView(textBackgroundView)
         designTextField(searchTextField, placeholder: "신조어를 검색하세요")
@@ -104,6 +112,11 @@ class WordViewController: UIViewController {
     //공백제거, 소문자로만 검색되도록 변경
     private func searchWord(keyword: String){
         let trimKeyword = keyword.trimmingCharacters(in: .whitespaces).lowercased()
+        
+        if trimKeyword != "" {
+            UserDefaults.standard.setValue(keyword, forKey: "recentKeyword")
+        }
+        
         if wordDictionary[trimKeyword] != nil{
             mentLabel.text = wordDictionary[trimKeyword]
         }else{
