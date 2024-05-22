@@ -51,8 +51,6 @@ class EmotionViewController: UIViewController {
         let idx = sender.tag
         emotionCounts[idx] += 1
         emotionLabels[idx].text = emotionTitles[idx] + " \(emotionCounts[idx])"
-        
-        savedEmotionCount(emotionCounts)
     }
     
     @IBAction func resetButtonClicked(_ sender: UIButton) {
@@ -71,7 +69,6 @@ class EmotionViewController: UIViewController {
         if let savedEmotionCounts = UserDefaults.standard.array(forKey: "emotionCounts") as? [Int] {
             emotionCounts = savedEmotionCounts
         }
-        
         //네비게이션 타이틀 설정
         navigationItem.title = "감정 다이어리"
         
@@ -88,6 +85,12 @@ class EmotionViewController: UIViewController {
         clearButton.layer.cornerRadius = 10
         clearButton.tintColor = .black
         
+    }
+
+    //뷰가 사라지기 직전에 호출
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        savedEmotionCount(emotionCounts)
     }
     
     private func savedEmotionCount(_ value: [Int]){
