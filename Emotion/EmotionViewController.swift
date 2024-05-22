@@ -56,8 +56,8 @@ class EmotionViewController: UIViewController {
     @IBAction func resetButtonClicked(_ sender: UIButton) {
         emotionCounts = emotionCounts.map{ $0 * 0 }
         
-        for idx in 0...8 {
-            emotionLabels[idx].text = emotionTitles[0]
+        for idx in 0...emotionLabels.count-1 {
+            emotionLabels[idx].text = emotionTitles[idx]
         }
     }
     
@@ -68,7 +68,7 @@ class EmotionViewController: UIViewController {
         navigationItem.title = "감정 다이어리"
        
         //버튼 디자인 적용 및 레이블 디자인 적용
-        for i in 0..<9 {
+        for i in 0...emotionLabels.count-1 {
             designButton(idx: i, emotionButtons[i], emotionImages[i])
             designLabel(emotionLabels[i], emotionTitle: emotionTitles[i])
         }
