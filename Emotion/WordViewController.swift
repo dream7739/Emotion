@@ -46,7 +46,6 @@ class WordViewController: UIViewController {
             recentSearchLabel.isHidden = true
         }
         
-        
         designBackgorundView(textBackgroundView)
         designTextField(searchTextField, placeholder: "신조어를 검색하세요")
         designSearchButton(searchButton, "magnifyingglass")
@@ -126,7 +125,7 @@ class WordViewController: UIViewController {
     }
     
     //버튼 스타일 적용
-    fileprivate func designButton(_ sender: UIButton){
+    private func designButton(_ sender: UIButton){
         sender.layer.borderColor = UIColor.black.cgColor
         sender.layer.cornerRadius = 15
         sender.layer.borderWidth = 2
@@ -134,7 +133,7 @@ class WordViewController: UIViewController {
     }
     
     //텍스트필드 스타일 적용
-    fileprivate func designTextField(_ sender: UITextField, placeholder: String){
+    private func designTextField(_ sender: UITextField, placeholder: String){
         sender.borderStyle = .none
         sender.tintColor = .black
         sender.placeholder = placeholder
@@ -146,13 +145,13 @@ class WordViewController: UIViewController {
     }
     
     // 텍스트필드 배경 테두리 스타일 적용
-    fileprivate func designBackgorundView(_ sender: UIView){
+    private func designBackgorundView(_ sender: UIView){
         sender.layer.borderColor = UIColor.black.cgColor
         sender.layer.borderWidth = 2.0
     }
     
     // 검색버튼 스타일 적용
-    fileprivate func designSearchButton(_ sender : UIButton, _ image: String){
+    private func designSearchButton(_ sender : UIButton, _ image: String){
         sender.backgroundColor = .black
         sender.setImage(UIImage(systemName: image), for: .normal)
         sender.setTitle("", for: .normal)
@@ -160,12 +159,12 @@ class WordViewController: UIViewController {
     }
     
     // 신조어 검색결과 이미지뷰 스타일 적용
-    fileprivate func designImageView(_ sender : UIImageView, _ image: String){
+    private func designImageView(_ sender : UIImageView, _ image: String){
         sender.contentMode = .scaleAspectFill
         sender.image = UIImage(named: image)
     }
     
-    fileprivate func designLabel(_ sender : UILabel, resultText: String){
+    private func designLabel(_ sender : UILabel, resultText: String){
         sender.text = resultText
         sender.textAlignment = .center
         sender.numberOfLines = 0
