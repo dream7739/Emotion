@@ -51,26 +51,35 @@ class EmotionViewController: UIViewController {
         let idx = sender.tag
         emotionCounts[idx] += 1
         emotionLabels[idx].text = emotionTitles[idx] + " \(emotionCounts[idx])"
+        
+        savedEmotionCount(emotionCounts)
     }
     
     @IBAction func resetButtonClicked(_ sender: UIButton) {
         emotionCounts = emotionCounts.map{ $0 * 0 }
         
         for idx in 0...emotionLabels.count-1 {
-            emotionLabels[idx].text = emotionTitles[idx]
+            designLabel(idx: idx, emotionLabels[idx], emotionTitle: emotionTitles[idx])
         }
+        
+        savedEmotionCount(emotionCounts)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let savedEmotionCounts = UserDefaults.standard.array(forKey: "emotionCounts") as? [Int] {
+            emotionCounts = savedEmotionCounts
+            print(savedEmotionCounts)
+        }
+        
         //네비게이션 타이틀 설정
         navigationItem.title = "감정 다이어리"
-       
+        
         //버튼 디자인 적용 및 레이블 디자인 적용
         for i in 0...emotionLabels.count-1 {
             designButton(idx: i, emotionButtons[i], emotionImages[i])
-            designLabel(emotionLabels[i], emotionTitle: emotionTitles[i])
+            designLabel(idx: i, emotionLabels[i], emotionTitle: emotionTitles[i])
         }
         
         //클리어버튼 디자인 적용
@@ -82,18 +91,29 @@ class EmotionViewController: UIViewController {
         
     }
     
+    private func savedEmotionCount(_ value: [Int]){
+        UserDefaults.standard.setValue(value, forKey: "emotionCounts")
+    }
+    
     //버튼 디자인 적용
-    fileprivate func designButton(idx: Int, _ sender: UIButton, _ image: UIImage){
+    private func designButton(idx: Int, _ sender: UIButton, _ image: UIImage){
         sender.tag = idx
         sender.setImage(image, for: .normal)
     }
     
     //레이블 디자인 적용
-    fileprivate func designLabel(_ sender: UILabel, emotionTitle title: String){
+    private func designLabel(idx: Int, _ sender: UILabel, emotionTitle title: String){
         sender.textAlignment = .center
-        sender.text = title
+        
+        //0인 상태면 count 반영하지 않고 0이 아니면 count 반영
+        let emotionCount = emotionCounts[idx]
+        
+        if emotionCount == 0 {
+            sender.text = title
+        }else{
+            sender.text = title + " \(emotionCount)"
+        }
     }
-    
     
 }
 
