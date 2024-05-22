@@ -8,6 +8,7 @@
 import UIKit
 
 class EmotionViewController: UIViewController {
+    @IBOutlet var clearButton: UIButton!
     @IBOutlet var slimeButton1: UIButton!
     @IBOutlet var slimeButton2: UIButton!
     @IBOutlet var slimeButton3: UIButton!
@@ -52,6 +53,14 @@ class EmotionViewController: UIViewController {
         emotionLabels[idx].text = emotionTitles[idx] + " \(emotionCounts[idx])"
     }
     
+    @IBAction func resetButtonClicked(_ sender: UIButton) {
+        emotionCounts = emotionCounts.map{ $0 * 0 }
+        
+        for idx in 0...8 {
+            emotionLabels[idx].text = emotionTitles[0]
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +72,13 @@ class EmotionViewController: UIViewController {
             designButton(idx: i, emotionButtons[i], emotionImages[i])
             designLabel(emotionLabels[i], emotionTitle: emotionTitles[i])
         }
+        
+        //클리어버튼 디자인 적용
+        clearButton.setTitle("초기화", for: .normal)
+        clearButton.layer.borderColor = UIColor.black.cgColor
+        clearButton.layer.borderWidth = 1
+        clearButton.layer.cornerRadius = 10
+        clearButton.tintColor = .black
         
     }
     

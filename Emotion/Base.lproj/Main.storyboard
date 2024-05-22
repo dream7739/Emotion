@@ -239,16 +239,28 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENr-to-ULn">
+                                <rect key="frame" x="137.66666666666666" y="153" width="117.66666666666666" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIb-f2-tKe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ENr-to-ULn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="Bq1-YO-i38"/>
+                            <constraint firstItem="ENr-to-ULn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="WOj-l3-VN5"/>
                             <constraint firstItem="L7A-xZ-w1Z" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YA1-fH-y83"/>
+                            <constraint firstItem="ENr-to-ULn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b2W-rt-9ww"/>
                             <constraint firstItem="L7A-xZ-w1Z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tkf-7m-Tfj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CnB-Sb-rNH"/>
                     <connections>
+                        <outlet property="clearButton" destination="ENr-to-ULn" id="OpB-Sd-oxn"/>
                         <outlet property="countLabel1" destination="0GS-S1-cKw" id="dBV-sx-RUQ"/>
                         <outlet property="countLabel2" destination="Uad-h8-bjt" id="VFT-at-ZeJ"/>
                         <outlet property="countLabel3" destination="UbO-Xr-hId" id="tuC-sj-J2I"/>
@@ -289,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989" y="-608"/>
+            <point key="canvasLocation" x="988.54961832061065" y="-608.45070422535218"/>
         </scene>
         <!--신조어 사전-->
         <scene sceneID="W4U-Yo-JnY">
@@ -928,19 +940,19 @@
         <image name="sun.horizon" catalog="system" width="128" height="79"/>
         <image name="sun.snow" catalog="system" width="128" height="124"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
