@@ -50,6 +50,7 @@ class EmotionViewController: UIViewController {
     @IBAction func emotionButtonClicked(_ sender: UIButton) {
         let idx = sender.tag
         emotionCounts[idx] += 1
+        savedEmotionCount(emotionCounts)
         emotionLabels[idx].text = emotionTitles[idx] + " \(emotionCounts[idx])"
     }
     
@@ -85,12 +86,6 @@ class EmotionViewController: UIViewController {
         clearButton.layer.cornerRadius = 10
         clearButton.tintColor = .black
         
-    }
-
-    //뷰가 사라지기 직전에 호출
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        savedEmotionCount(emotionCounts)
     }
     
     private func savedEmotionCount(_ value: [Int]){
